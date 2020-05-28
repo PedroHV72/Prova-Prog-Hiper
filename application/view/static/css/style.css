@@ -1,0 +1,195 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: "Hind", Arial, serif;
+    line-height: 1.85;
+    font-weight: 400;
+    font-size: 15px;
+    color: #999;
+    -ms-overflow-style: scrollbar;
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+    max-height: auto;
+}
+
+a {
+    color: #444;
+    -webkit-transition: all .3s ease-in-out;
+            transition: all .3s ease-in-out;
+}
+
+a:hover {
+    outline: 0;
+    text-decoration: none;
+    color: black;
+}
+
+h1 > a,
+h3 > a,
+h5 > a {
+    color: #444;
+}
+
+h1 > a:hover,
+h3 > a:hover,
+h5 > a:hover {
+    color: black;
+}
+
+p,
+ul,
+ol,
+h1,
+h3,
+h5 {
+    margin: 0 0 20px;
+}
+
+h1,
+h3,
+h5,
+.h5 {
+    font-family: "Poppins", Arial, serif;
+    line-height: 1.2;
+    font-weight: 700;
+    color: #444;
+}
+
+h1,
+.h1 {
+    font-size: 40px;
+}
+
+h3,
+.h3 {
+    font-size: 24px;
+}
+
+h5,
+.h5 {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0 0 10px;
+}
+
+hr {
+    border-color: rgba(238, 238, 238, .9);
+}
+
+hr {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+ul,
+ol {
+    padding-left: 0;
+    list-style: none;
+}
+
+ul > li,
+ol > li {
+    margin: 0 0 5px;
+}
+
+#about-area {
+    background-color: #fff;
+}
+
+.main-title {
+    color: #444;
+    margin: 0 0 65px 0;
+    font-size: 40x;
+    text-align: center;
+}
+
+.main-title::after {
+    content: "";
+    border-top: 2px solid #333;
+    width: 15%;
+    position: absolute;
+    top: 60px;
+    left: 42.5%;
+}
+
+.module-page-title {
+    background-color: #FAFAFA;
+    padding: 60px 0 30px;
+}
+
+.module-page-title .h5 {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 17px;
+    margin: 0;
+}
+
+.portfolio-title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    line-height: 1.8;
+    font-size: 12px;
+    color: #fff;
+    margin: 0;
+}
+
+.portfolio-sidebar {
+    padding-left: 30px;
+}
+
+.portfoli-details {
+    border-top: 1px solid rgba(238, 238, 238, .9);
+    border-bottom: 1px solid rgba(238, 238, 238, .9);
+    padding: 20px 0;
+    margin: 0 0 0;
+}
+
+.portfoli-details ul {
+    margin: 0;
+}
+
+.portfoli-details > ul > li {
+    margin: 0 0 20px;
+}
+
+.portfoli-details li > h5 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    margin: 0 0 5px;
+}
+
+.footer {
+    position: relative;
+    background: black;
+    color: #bfbfbf;
+}
+
+.footer a {
+    color: #fff;
+}
+
+.footer a:hover,
+.footer a:focus {
+    color: #444;
+    opacity: .7;
+}
+
+.footer .copyright {
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: bold;
+    font-size: 11px;
+    margin: 0;
+}
+
+.footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, .05);
+    padding: 20px 0;
+}
