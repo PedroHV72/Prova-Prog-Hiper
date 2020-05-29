@@ -235,9 +235,8 @@ ol > li {
 }
 
 .comp,
-#team-section h6,
-#team-section p,
-#team-section ul{
+p,
+ul{
   -webkit-transition: all .3s ease-in-out;
      -moz-transition: all .3s ease-in-out;
       -ms-transition: all .3s ease-in-out;
