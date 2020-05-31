@@ -9,3 +9,5 @@ app = Flask(__name__, template_folder = template_folder, static_folder = static_
 
 
 from application.controller import hello_controller
+from application.controller import category_controller
+from application.controller import video_controller
