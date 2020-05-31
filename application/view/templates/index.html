@@ -9,45 +9,7 @@
       </div>
     </main>
     <br><br>
-    <div id="about-area">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h3 class="titulo">Menu de categorias</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="menu_categoria">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="unica_categoria">
-              <div class="movimento_titulo comp">
-                <h3 class="titulo2"><a href="#" class="comp">Categoria Prefire</a></h3>
-              </div>
-              <p><a href="{{url_for('prefire')}}"><button class="btn btn-green">Acesse a categoria</button></a></p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="unica_categoria">
-              <div class="movimento_titulo comp">
-                <h3 class="titulo2">Categoria Triple Kill</h3>
-              </div>
-              <p><a href="{{url_for('triplekill')}}"><button class="btn btn-green">Acesse a categoria</button></a></p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="unica_categoria">
-              <div class="movimento_titulo comp">
-                <h3 class="titulo2"><a href="#" class="comp">Categoria Headshot</a></h3>
-              </div>
-              <p><a href="{{url_for('hs')}}"><button class="btn btn-green">Acesse a categoria</button></a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% include 'menu_categoria.html' %}{% block menu %}{% endblock %}
     <br><br>
     <div id="about-area">
       <div class="container">
@@ -108,63 +70,7 @@
       <div class="container">
         <div class="row-page-title">
           <div class="page-title-captions">
-            <h1 class="h5">Quer ver os vídeos dessa categoria? <a href="{{url_for('prefire')}}">Clique aqui.</a></h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    <br><br><br>
-    <section class="area_title">
-      <div class="container">
-        <div class="row-page-title">
-          <div class="page-title-captions">
-            <h1 class="h5">Conheça meus highlights</h1>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="module">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="suporte_img">
-              <div class="image-slider">
-                <img src="{{url_for('static', filename = 'img/squad.png')}}" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="suporte_descriptions">
-              <div class="descriptions">
-                <ul>
-                  <li>
-                    <h5>Área para curtir: Número de curtidas</h5> <br> <button class="btn btn-green">Curtir</button>
-                  </li>
-                  <hr>
-                  <li>
-                    <h5>Área para visualizações:</h5> ...
-                  </li>
-                  <hr>
-                  <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                      <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Deixe seu comentário"></textarea>
-                      <div class="validation"></div>
-                      <br>
-                      <button class="btn btn-green">Comentar</button>
-                    </div>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="area_title">
-      <div class="container">
-        <div class="row-page-title">
-          <div class="page-title-captions">
-            <h1 class="h5">Quer ver os vídeos dessa categoria? <a href="{{url_for('prefire')}}">Clique aqui.</a></h1>
+            <h1 class="h5">Quer ver os vídeos dessa categoria? <a href="#">Clique aqui.</a></h1>
           </div>
         </div>
       </div>
