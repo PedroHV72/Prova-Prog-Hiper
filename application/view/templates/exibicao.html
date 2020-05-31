@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block body %}
+    <main>
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="{{url_for('static', filename = 'img/slide3.jpg')}}" class="d-block w-100" alt="">
+            </div>
+        </div>
+    </main>
+    <br><br><br>
+    {% for video in category.get_todos_videos() %}
+    <div id="about-area">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+            <h3 class="titulo">Categoria: {{category.get_titulo()}}</h3>
+            </div>
+        </div>
+        </div>
+    </div>
+    <section class="area_title">
+        <div class="container">
+        <div class="row-page-title">
+            <div class="page-title-captions">
+            <h1 class="h5"> {{video.get_titulo()}}{{video.get_descricao()}}</h1>
+            </div>
+        </div>
+        </div>
+    </section>
+    <section class="module">
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-8">
+            <div class="suporte_img">
+            <div class="image-slider">
+                <video width="750" height="425" controls src="{{url_for('static', filename=video.get_video())}}"></video>
+            </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="suporte_descriptions">
+            <div class="descriptions">
+                <ul>
+                <li>
+                    <h5>Área para curtir: Número de curtidas</h5> <br> <button class="btn btn-green">Curtir</button>
+                </li>
+                <hr>
+                <li>
+                    <h5>Área para visualizações:</h5> ...
+                </li>
+                <hr>
+                <div class="col-md-12 mb-3">
+                    <div class="form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                    <br>
+                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Deixe seu comentário"></textarea>
+                    <div class="validation"></div>
+                    <br>
+                    <button class="btn btn-green">Comentar</button>
+                    </div>
+                </div>
+                </ul>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+    <br><br><br>
+    {% endfor %}
+
+{%endblock%}
