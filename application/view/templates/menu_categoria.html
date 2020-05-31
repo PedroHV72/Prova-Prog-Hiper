@@ -1,0 +1,28 @@
+{% block menu %}
+<div id="about-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h3 class="titulo">Menu de categorias</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="menu_categoria">
+    <div class="container">
+      <div class="row">
+        {% for categoria in category_list %}
+        <div class="col-lg-4 col-md-4 col-sm-6">
+          <div class="unica_categoria">
+            <div class="movimento_titulo comp">
+              <h3 class="titulo2"><a href="{{url_for('category', category_id = categoria.get_id())}}" class="comp">Categoria {{categoria.get_titulo()}}</a></h3>
+            </div>
+            <p><a href="{{url_for('category', category_id = categoria.get_id())}}"><button class="btn btn-green">Acesse a categoria</button></a></p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{%endblock%}
