@@ -1,21 +1,25 @@
+from application import todos_os_videos
+from application.model.entity.video import Video
+
 class VideoDAO:
     def __init__(self):
-        pass
+        self._todos_os_videos = todos_os_videos
 
-    def max_curtido(self):
-        mais_curtida1 = self._todos_videos[0]
-        mais_curtida2 = self._todos_videos[0]
-        for video in self._todos_videos:
-            if self.mais_curtida.get_curtida > video.get_curtida():
-                mais_curtida1 = video
+    def contar_curtida(self, video):
+        like = video.get_todas_curtidas()
+        like += 1
+        video.set_curtida(like)
 
-            if self.max_curtida.get_qntCurtida > video.get_curtida() and =! mais_curtida1:
-                mais_curtida2 = video
+    def armazenar_visualizacao(self, video):
+        visu = video.get_todas_visualizacoes()
+        visu += 1
+        video.set_visualizacoes(visu)
 
-    def somar_visualizacao(self, video):
-        visualizacao(0) += 1
-        video.set_visualizacoes(visualizacoes)
+    def retornar_todos_videos(self):
+        return self._todos_os_videos
 
-    def somar_curtida(self, video):
-        curtida(0) += 1
-        video.set_curtida(curtida)
+    def procurar_video(self, id):
+        for i in range(0, len(self._todos_os_videos)):
+            if self._todos_os_videos[i].get_id() == int(id):
+                return self._todos_os_videos[i]
+        return None
