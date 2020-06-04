@@ -34,7 +34,7 @@
           <div class="col-lg-8">
             <div class="suporte_img">
               <div class="image-slider">
-                <img width="750" height="550" src="{{url_for('static', filename=video.get_imagem_video())}}"></img>
+                <img width="750" height="450" src="{{url_for('static', filename=video.get_imagem_video())}}"></img>
               </div>
             </div>
           </div>
@@ -43,11 +43,11 @@
               <div class="descriptions">
                 <ul>
                   <li>
-                    <h5>Área para curtir:</h5> Número de curtidas
+                    <h5>Curtidas do vídeo:</h5> {{video.get_todas_curtidas()}}
                   </li>
                   <hr>
                   <li>
-                    <h5>Área para visualizações:</h5> Número de visualizações
+                    <h5>Visualizações do vídeo:</h5> {{video.get_todas_visualizacoes()}}
                   </li>
                 </ul>
               </div>

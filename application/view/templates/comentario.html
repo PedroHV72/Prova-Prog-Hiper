@@ -1,0 +1,28 @@
+<section class="area_title">
+    <div class="container">
+    <div class="row-page-title">
+        <div class="page-title-captions">
+        <h1 class="h5">Comentários</h1>
+        </div>
+    </div>
+    </div>
+</section>
+<div class="comments-container">
+    <ul id="comments-list" class="comments-list">
+        {% for comentario in video.get_comentario() %}
+        <li>
+            <div class="comment-main-level">
+                <div class="comment-avatar"><img src="{{url_for('static', filename = 'img/anon.jpg')}}" alt=""></div>
+                <div class="comment-box">
+                    <div class="comment-head">
+                        <h5 class="comment-name"><p>{{comentario.get_nome()}}</p></h5>
+                    </div>
+                    <div class="comment-content">
+                        {{comentario.get_text()}}
+                    </div>
+                </div>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+</div>

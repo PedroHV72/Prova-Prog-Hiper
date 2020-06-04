@@ -42,23 +42,32 @@
             <div class="suporte_descriptions">
             <div class="descriptions">
                 <ul>
-                <li>
-                    <h5>Área para curtir: Número de curtidas</h5> <br> <button id="mensagem_curtida" class="btn btn-green">Curtir</button>
-                </li>
-                <hr>
-                <li>
-                    <h5>Área para visualizações:</h5> ...
-                </li>
-                <hr>
-                <div class="col-md-12 mb-3">
-                    <div class="form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
-                    <br>
-                    <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Deixe seu comentário"></textarea>
-                    <div class="validation"></div>
-                    <br>
-                    <button id="mensagem_comentario" class="btn btn-green">Comentar</button>
+                    <div id="divCurtida">
+                        <li>
+                            <h5>Área para curtir: {{video.get_todas_curtidas()}}</h5>
+                        </li>
                     </div>
+                    <br>
+                    <li>
+                        <button id="like" onclick="curtir()" class="btn btn-green">Curtir</button>
+                    </li>
+                <hr>
+                <li>
+                    <h5>Área para visualizações:</h5> {{video.get_todas_visualizacoes()}}
+                </li>
+                <hr>
+                <div id="divComent">
+                <form enctype="multipart/form-data" action="{{url_for('comentar', video_id = video.get_id())}}" method="POST" onsubmit="return submitForm(this);">
+                    <div class="form-group">
+                        <label for="inputNome">Nome: </label>
+                        <input type="text" class="form-control" id="inputNome" name="nome">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Deixe seu comentário</label>
+                        <textarea class="form-control" name="comentario" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <button id="mensagem_comentario" type="submit" class="btn btn-green">Enviar</button>
+                </form>
                 </div>
                 </ul>
             </div>
@@ -68,6 +77,68 @@
     </div>
     </section>
     <br><br><br>
+    <div id="areaComent">
+        {% for comentario in video.get_comentario() %}
+        <section class="area_title">
+            <div class="container">
+            <div class="row-page-title">
+                <div class="page-title-captions">
+                <h1 class="h5">Comentários</h1>
+                </div>
+            </div>
+            </div>
+        </section>
+        <div class="comments-container">
+            <ul id="comments-list" class="comments-list">
+                <li>
+                    <div class="comment-main-level">
+                        <div class="comment-avatar"><img src="{{url_for('static', filename = 'img/anon.jpg')}}" alt=""></div>
+                        <div class="comment-box">
+                            <div class="comment-head">
+                                <h5 class="comment-name"><p>{{comentario.get_nome()}}</p></h5>
+                            </div>
+                            <div class="comment-content">
+                                {{comentario.get_text()}}
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
     {% endfor %}
+
+    <script>
+        function curtir(formElement){
+            console.log("curtir");
+            var formData = new FormData(formElement)
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('POST', "{{url_for('curtir', video_id = video.get_id())}}", true);
+            xmlhttp.onreadystatechange = function() {
+                if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById('divCurtida').innerHTML = xmlhttp.response;
+                    };
+                };
+            xmlhttp.send(formData);
+            console.log(xmlhttp.send())
+            return false;
+        }
+    </script>
+
+    <script>
+        function submitForm(formElement){
+        var formData = new FormData(formElement);
+        var xhr = new XMLHttpRequest();
+        xhr.open(formElement.method, formElement.action);
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4 && xhr.status == 200) {
+            document.getElementById('areaComent').innerHTML = xhr.response;
+            };
+            };
+        xhr.send(formData);
+        return false;
+        }
+    </script>
 
 {%endblock%}
